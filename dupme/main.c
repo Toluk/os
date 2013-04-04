@@ -16,14 +16,9 @@ int main(int argc, char* argv[])
         /*по моему удобнее было бы считывать скажем по 512 байт за раз но по условию надо сделать k*/
         const int buff = k + 1;
         char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
-        for (int i = 0; i < k + 1; i++)
-            temp[i] = 'a';
-        for (int i = 0; i < buff; i++)
-            buffer[i] = 'a';
         while (flag1 == 1)
             {
                 int hmr = read(0, buffer, buff), i = 0;
-                int cnt = 0;
                 while (i < hmr)
                     {
                         temp[temp_pointer++] = buffer[i++];
