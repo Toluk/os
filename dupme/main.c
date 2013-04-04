@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
                                 flag2 = 0;
                                 temp_pointer = 0;
                             }
-                        if (flag2 == 0 && temp[temp_pointer - 1] == '\n' && temp_pointer >= 1)
+                        if (flag2 == 0 && temp[temp_pointer - 1] == '\n' && temp_pointer > 0)
                             {
                                 flag2 = 1;
                                 temp_pointer = 0;
