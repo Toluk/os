@@ -18,11 +18,7 @@ int i_want_atoi(char* why)
 int main(int argc, char* argv[])
     {
         int k = i_want_atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0, i = 0;
-        /*char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);*/
-        /*дико странное поведение, если первая строка не влезает*/
-        /*ее она обрабатывает криво, а вот все последующие почемуто нормально*/
-        /*вариант, который ниже, работает прекрастно*/
-        char temp[k + 1], buffer[buff];
+        char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
         while (flag1 == 1)
             {
                 int hmr = read(0, buffer, buff), i = 0;
@@ -41,7 +37,7 @@ int main(int argc, char* argv[])
                                 flag2 = 0;
                                 temp_pointer = 0;
                             }
-                        if (flag2 == 0 && temp[temp_pointer - 1] == '\n')
+                        if (flag2 == 0 && temp[temp_pointer - 1] == '\n' && temp_pointer >= 1)
                             {
                                 flag2 = 1;
                                 temp_pointer = 0;
