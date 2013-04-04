@@ -15,7 +15,7 @@ int i_want_atoi(char* why)
 int main(int argc, char* argv[])
     {
         int k = i_want_atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0, i = 0;
-        buff = k;
+        int buff = k;
         char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
         while (flag1 == 1)
             {
