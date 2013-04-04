@@ -8,10 +8,7 @@ int i_want_atoi(char* why)
     {
         int temp = 0, i = 0;
         while(why[i] >= '0' && why[i] <= '9')
-            {
-                temp = temp * 10 + why[i] - 48;
-                i++;
-            }
+            temp = temp * 10 + why[i++] - 48;
         return temp;
     }
 
