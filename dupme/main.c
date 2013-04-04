@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/*const int buff = 512;*/
-
 int i_want_atoi(char* why)
     {
         int temp = 0, i = 0;
@@ -14,13 +12,18 @@ int i_want_atoi(char* why)
 
 int main(int argc, char* argv[])
     {
-        int k = i_want_atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0, i = 0;
+        int k = i_want_atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0;
+        /*по моему удобнее было бы считывать скажем по 512 байт за раз но по условию надо сделать k*/
         const int buff = k + 1;
-        /*вроде как нада читать по k байт, так что константу переназначил*/
         char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
+        for (int i = 0; i < k + 1; i++)
+            temp[i] = 'a';
+        for (int i = 0; i < buff; i++)
+            buffer[i] = 'a';
         while (flag1 == 1)
             {
                 int hmr = read(0, buffer, buff), i = 0;
+                int cnt = 0;
                 while (i < hmr)
                     {
                         temp[temp_pointer++] = buffer[i++];
@@ -39,6 +42,7 @@ int main(int argc, char* argv[])
                         if (flag2 == 0 && temp[temp_pointer - 1] == '\n' && temp_pointer > 0)
                             {
                                 flag2 = 1;
+                                temp[temp_pointer - 1] = 'a';
                                 temp_pointer = 0;
                             }
                     }
