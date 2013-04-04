@@ -7,7 +7,7 @@ const int buff = 512;
 int main(int argc, char* argv[])
     {
         int k = atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0, i = 0;
-        char temp[k + 1], buffer[buff];
+        char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
         while (flag1 == 1)
             {
                 int hmr = read(0, buffer, buff), i = 0;
