@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
                 while (i < hmr)
                     {
                         temp[temp_pointer++] = buffer[i++];
-                        if (temp_pointer <= k + 1 && temp[temp_pointer - 1] == '\n' && flag2 == 1)
+                        if (temp_pointer > 0 && temp_pointer <= k + 1 && temp[temp_pointer - 1] == '\n' && flag2 == 1)
                             {
                                 write(1, temp, temp_pointer);
                                 write(1, temp, temp_pointer);
