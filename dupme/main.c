@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/*на случай, если нельзя использовать atoi()*/
 int i_want_atoi(char* why)
     {
         int temp = 0, i = 0;
@@ -12,10 +13,12 @@ int i_want_atoi(char* why)
 
 int main(int argc, char* argv[])
     {
-        int k = i_want_atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0;
+        int k = atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0;
         /*по моему удобнее было бы считывать скажем по 512 байт за раз но по условию надо сделать k*/
         const int buff = k + 1;
-        char *temp = (char *) malloc(k + 1), *buffer = (char *) malloc(buff);
+        /*считываем по buff символов за раз*/
+        char *temp = (char *) malloc(buff), *buffer = (char *) malloc(buff);
+        /*если падает malloc то думаю надо больше памяти, нежели менять прогу*/
         while (flag1 == 1)
             {
                 int hmr = read(0, buffer, buff), i = 0;
@@ -41,6 +44,7 @@ int main(int argc, char* argv[])
                                 temp_pointer = 0;
                             }
                     }
+                /*если считываем меньше чем символов, выходим из программы, в топку вечные циклы*/
                 if (hmr < buff)
                     flag1 = 0;
             }
