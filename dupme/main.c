@@ -13,6 +13,8 @@ int i_want_atoi(char* why)
 
 int main(int argc, char* argv[])
     {
+        char change = 'a';
+        /*главное чтобы !='\n'*/
         int k = atoi(argv[1]), flag1 = 1, flag2 = 1, temp_pointer = 0;
         /*по моему удобнее было бы считывать скажем по 512 байт за раз но по условию надо сделать k*/
         const int buff = k + 1;
@@ -29,7 +31,7 @@ int main(int argc, char* argv[])
                             {
                                 write(1, temp, temp_pointer);
                                 write(1, temp, temp_pointer);
-                                temp[temp_pointer - 1] = 'a';
+                                temp[temp_pointer - 1] = change;
                                 temp_pointer = 0;
                             }
                         if (temp_pointer == k + 1 && temp[temp_pointer - 1] != '\n')
@@ -40,7 +42,7 @@ int main(int argc, char* argv[])
                         if (flag2 == 0 && temp[temp_pointer - 1] == '\n' && temp_pointer > 0)
                             {
                                 flag2 = 1;
-                                temp[temp_pointer - 1] = 'a';
+                                temp[temp_pointer - 1] = change;
                                 temp_pointer = 0;
                             }
                     }
